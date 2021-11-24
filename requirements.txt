@@ -2,12 +2,13 @@ Django
 djangorestframework
 markdown
 django-filter
-psycopg2>=2.7,<3.0
+# psycopg2
+psycopg2-binary
 pika
 pyzmq
 django-cors-headers
 django-environ
-django-sslserver
+# django-sslserver
 channels
 # django-redis
 django-async-redis

@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'data_api',
-    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +125,7 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+            'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'SensorData',
     }
 }
