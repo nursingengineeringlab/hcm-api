@@ -2,7 +2,6 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 # from device_manager.data_medium import dataMedium
 from device_manager.manager import onlineSeniorsDict
 from data_api.models import Senior
-# from asgiref.sync import async_to_sync
 from channels.db import database_sync_to_async
 from asgiref.sync import sync_to_async
 from django.core.cache import cache
@@ -37,9 +36,12 @@ class SensorDataConsumer(AsyncWebsocketConsumer):
             self.device_group_name,
             self.channel_name
         )
+#   File "/home/shiywang/hcm-api/device_manager/sensor_data_ws.py", line 42, in disconnect
+#     del online_seniors[self.device_id]
+# KeyError: 'test'
 
-        with onlineSeniorsDict as online_seniors:
-            del online_seniors[self.device_id]
+        # with onlineSeniorsDict as online_seniors:
+            # del online_seniors[self.device_id]
 
         # print("DISCONNECED CODE: ",code)
         # print("Device IDL ", self.device_id)
