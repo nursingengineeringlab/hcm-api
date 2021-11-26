@@ -38,10 +38,10 @@ class SeniorViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Senior.objects.all().order_by('-user__date_joined')
+    queryset = Senior.objects.all()
     serializer_class = Senior.get_serializer()
     permission_classes = [permissions.IsAuthenticated]
-
+    
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         user = instance.user

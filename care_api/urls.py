@@ -22,7 +22,7 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'seniors', views.SeniorViewSet)
-router.register(r'sensordata/(?P<type>[-\w]+)', views.SensorDataViewSet, basename='sensordata')
+# router.register(r'sensordata/(?P<type>[-\w]+)', views.SensorDataViewSet, basename='sensordata')
 #router.register(r'ping', views.PingEndpoint)
 
 urlpatterns = [
