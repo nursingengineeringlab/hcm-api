@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from data_api import views
+from accounts.urls import accounts_urlpatterns
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -32,3 +34,5 @@ urlpatterns = [
     path('ping/', views.PingEndpoint),
     path('get-online-seniors/', views.GetOnlineSeniors),
 ]
+
+urlpatterns += accounts_urlpatterns

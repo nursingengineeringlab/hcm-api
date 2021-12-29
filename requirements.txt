@@ -1,4 +1,4 @@
-Django
+django
 djangorestframework
 markdown
 django-filter
@@ -8,6 +8,7 @@ pika
 pyzmq
 django-cors-headers
 django-environ
+djoser
 # django-sslserver
 channels
 # django-redis
