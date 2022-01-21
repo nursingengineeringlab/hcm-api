@@ -94,21 +94,17 @@ CHANNEL_LAYERS = {'default':{
     "BACKEND": "channels.layers.InMemoryChannelLayer"
 }}
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [CHANNEL_REDIS_HOST],
-#             "symmetric_encryption_keys": [SECRET_KEY],
-#         },
-#     },
-# }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'PAGE_SIZE': 99999999
+    'PAGE_SIZE': 99999999,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }
 
 # Database
@@ -248,14 +244,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3001"
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ]
-}
 
 DJOSER = {
     "USER_ID_FIELD": "username"
