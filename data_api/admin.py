@@ -1,5 +1,5 @@
 from django.contrib import admin
-from data_api.models import Senior, FamilyMember, CareProvider, Sensor_Data
+from data_api.models import Senior, FamilyMember
 
 # Register your models here.
 admin.site.register(Senior)

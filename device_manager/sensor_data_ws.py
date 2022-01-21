@@ -1,6 +1,4 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
-# from device_manager.data_medium import dataMedium
-from device_manager.manager import onlineSeniorsDict
 from data_api.models import Senior
 from channels.db import database_sync_to_async
 from asgiref.sync import sync_to_async
