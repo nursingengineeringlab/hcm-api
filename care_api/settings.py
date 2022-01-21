@@ -18,12 +18,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def get_env_value(env_variable):
-    try:
-      	return os.environ[env_variable]
-    except KeyError:
-        error_msg = 'Set the {} environment variable'.format(env_variable)
-        raise ImproperlyConfigured(error_msg)
+# def get_env_value(env_variable):
+#     try:
+#       	return os.environ[env_variable]
+#     except KeyError:
+#         error_msg = 'Set the {} environment variable'.format(env_variable)
+#         raise ImproperlyConfigured(error_msg)
 
 
 # Quick-start development settings - unsuitable for production
@@ -98,7 +98,7 @@ CHANNEL_LAYERS = {'default':{
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'PAGE_SIZE': 99999999,
+    'PAGE_SIZE': 10000,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),

@@ -9,7 +9,6 @@ from rest_framework.parsers import JSONParser
 from data_api.serializers import UserSerializer, GroupSerializer
 from data_api.models import Senior
 from data_api.utils import get_model_by_name, url_params_validation
-import json
 from rest_framework.decorators import api_view
 
 # Create your views here.
