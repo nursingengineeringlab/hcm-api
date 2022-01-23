@@ -18,12 +18,12 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def get_env_value(env_variable):
-    try:
-      	return os.environ[env_variable]
-    except KeyError:
-        error_msg = 'Set the {} environment variable'.format(env_variable)
-        raise ImproperlyConfigured(error_msg)
+# def get_env_value(env_variable):
+#     try:
+#       	return os.environ[env_variable]
+#     except KeyError:
+#         error_msg = 'Set the {} environment variable'.format(env_variable)
+#         raise ImproperlyConfigured(error_msg)
 
 
 # Quick-start development settings - unsuitable for production
@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'data_api',
+    'rest_framework.authtoken',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -92,21 +94,17 @@ CHANNEL_LAYERS = {'default':{
     "BACKEND": "channels.layers.InMemoryChannelLayer"
 }}
 
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [CHANNEL_REDIS_HOST],
-#             "symmetric_encryption_keys": [SECRET_KEY],
-#         },
-#     },
-# }
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
-    'PAGE_SIZE': 99999999
+    'PAGE_SIZE': 10000,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }
 
 # Database
@@ -245,3 +243,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3001",
     "http://127.0.0.1:3001"
 ]
+
+
+DJOSER = {
+    "USER_ID_FIELD": "username"
+}

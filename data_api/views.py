@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, Group
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
@@ -8,11 +7,8 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.parsers import JSONParser
 from data_api.serializers import UserSerializer, GroupSerializer
-from data_api.models import Senior, FamilyMember, CareProvider, RR, Sensor_Data
+from data_api.models import Senior
 from data_api.utils import get_model_by_name, url_params_validation
-import json
-from device_manager.data_medium import dataMedium
-from device_manager.manager import onlineSeniorsDict
 from rest_framework.decorators import api_view
 
 # Create your views here.
@@ -46,7 +42,6 @@ class SeniorViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         user = instance.user
         user.delete()
-        dataMedium.delete_senior(instance.device_id)  # Delete from list of online seniors (used by web dashboard)
         return super(SeniorViewSet, self).destroy(request, *args, **kwargs)
 
 
@@ -59,7 +54,6 @@ class SensorDataViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
-        dataMedium.sensor_data(request.data)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
@@ -77,24 +71,3 @@ class SensorDataViewSet(viewsets.ModelViewSet):
         serializer_class = sensordata.get_serializer()
         return serializer_class
 
-
-@csrf_exempt
-def PingEndpoint(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request)
-        try:
-            dataMedium.ping(data)
-        except Exception as e:
-            return HttpResponse(status=500)
-
-        return HttpResponse(status=201)
-
-    return HttpResponse(status=400)
-
-
-@api_view(['GET'])
-@csrf_exempt
-def GetOnlineSeniors(request):
-    if request.method == 'GET':
-        data = onlineSeniorsDict
-        return JsonResponse(data)

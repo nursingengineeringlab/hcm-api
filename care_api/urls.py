@@ -17,18 +17,18 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from data_api import views
+from accounts.urls import accounts_urlpatterns
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'seniors', views.SeniorViewSet)
-# router.register(r'sensordata/(?P<type>[-\w]+)', views.SensorDataViewSet, basename='sensordata')
-#router.register(r'ping', views.PingEndpoint)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('ping/', views.PingEndpoint),
-    path('get-online-seniors/', views.GetOnlineSeniors),
 ]
+
+urlpatterns += accounts_urlpatterns
