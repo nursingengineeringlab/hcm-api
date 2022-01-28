@@ -13,4 +13,5 @@ djoser
 channels
 # django-redis
 django-async-redis
+django_cors_headers==3.5.0
 aioredis

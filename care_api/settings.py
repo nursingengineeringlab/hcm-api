@@ -102,9 +102,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ]
 }
 
 # Database
@@ -241,8 +241,11 @@ CORS_ALLOW_HEADERS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3001",
-    "http://127.0.0.1:3001"
+    "http://127.0.0.1:3001",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
+
 
 
 DJOSER = {
