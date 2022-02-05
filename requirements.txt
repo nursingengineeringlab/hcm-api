@@ -6,7 +6,7 @@ django-filter
 psycopg2-binary
 pika
 pyzmq
-django-cors-headers
+# django-cors-headers
 django-environ
 djoser
 # django-sslserver

@@ -1,7 +1,7 @@
-from django.conf.urls import url, include
+from django.urls import include, re_path
 
 accounts_urlpatterns = [
-    url(r'^api/v1/', include('djoser.urls')),
-    url(r'^api/v1/', include('djoser.urls.authtoken')),
+    re_path(r'^api/v1/', include('djoser.urls')),
+    re_path(r'^api/v1/', include('djoser.urls.authtoken')),
 ]
 
