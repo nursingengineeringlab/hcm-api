@@ -121,12 +121,12 @@ REST_FRAMEWORK = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'SensorData',
-#     }
-# }
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'SensorData',
+    }
+}
 
 # CACHES = {
 #     "default": {
@@ -162,24 +162,24 @@ REST_FRAMEWORK = {
 # }
 
 
-def get_env_value(env_variable):
-    try:
-        return os.environ[env_variable]
-    except KeyError:
-        error_msg = 'Set the {} environment variable'.format(env_variable)
-        raise ImproperlyConfigured(error_msg)
+# def get_env_value(env_variable):
+#     try:
+#         return os.environ[env_variable]
+#     except KeyError:
+#         error_msg = 'Set the {} environment variable'.format(env_variable)
+#         raise ImproperlyConfigured(error_msg)
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'SensorData',
-        'USER': 'CHSUser1',
-        'HOST': get_env_value('POSTGRES_DB_SVC_SERVICE_HOST'),
-        'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
-        'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'SensorData',
+#         'USER': 'CHSUser1',
+#         'HOST': get_env_value('POSTGRES_DB_SVC_SERVICE_HOST'),
+#         'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
+#         'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
+#     }
+# }
 
 
 # Password validation
