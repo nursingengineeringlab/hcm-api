@@ -8,3 +8,4 @@ __pycache__
 **/*.pyc
 venv/
 data_api/migrations/__pycache__/*.pyc
+data_api/migrations/__pycache__/*.pyc
