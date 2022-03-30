@@ -18,12 +18,13 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# def get_env_value(env_variable):
-#     try:
-#       	return os.environ[env_variable]
-#     except KeyError:
-#         error_msg = 'Set the {} environment variable'.format(env_variable)
-#         raise ImproperlyConfigured(error_msg)
+def get_env_value(env_variable):
+    try:
+        return os.environ[env_variable]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(env_variable)
+        raise ImproperlyConfigured(error_msg)
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -102,84 +103,23 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ]
 }
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'SensorData',
-#         'USER': 'CHSUser1',
-#         'HOST': get_env_value('POSTGRES_DB_SVC_SERVICE_HOST'),
-#         'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
-#         'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
-#     }
-# }
 
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'SensorData',
+        'USER': 'CHSUser1',
+        'HOST': 'postgres-db-svc.postgresql.svc.cluster.local',
+        'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
+        'PORT': 5432,
     }
 }
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": ".cache.RedisCache",
-#         "LOCATION": "",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
-
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_async_redis.cache.RedisCache",
-#         "LOCATION": "redis://10.152.183.214:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_async_redis.client.DefaultClient",
-#         }
-#     }
-# }
-
-# DJANGO_ASYNC_REDIS_IGNORE_EXCEPTIONS = True
-
-
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_async_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_async_redis.client.DefaultClient",
-#         }
-#     }
-# }
-
-
-# def get_env_value(env_variable):
-#     try:
-#         return os.environ[env_variable]
-#     except KeyError:
-#         error_msg = 'Set the {} environment variable'.format(env_variable)
-#         raise ImproperlyConfigured(error_msg)
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'SensorData',
-#         'USER': 'CHSUser1',
-#         'HOST': get_env_value('POSTGRES_DB_SVC_SERVICE_HOST'),
-#         'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
-#         'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
-#     }
-# }
 
 
 # Password validation
@@ -253,6 +193,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3001",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://nelab.ddns.umass.edu",
+    "https://nelab.ddns.umass.edu",
 ]
 
 
