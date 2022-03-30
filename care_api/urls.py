@@ -25,10 +25,14 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'seniors', views.SeniorViewSet)
 
-urlpatterns = [
+basepatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
-urlpatterns += accounts_urlpatterns
+basepatterns += accounts_urlpatterns
+
+urlpatterns = [
+    path('backend/', include(basepatterns)),
+]
