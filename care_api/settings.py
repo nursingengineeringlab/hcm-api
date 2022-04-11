@@ -109,9 +109,12 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
+SQLLITE = 'django.db.backends.sqlite3'
+POSTSQL = 'django.db.backends.postgresql'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': POSTSQL,
         'NAME': 'SensorData',
         'USER': 'CHSUser1',
         'HOST': 'postgres-db-svc.postgresql.svc.cluster.local',

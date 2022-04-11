@@ -2,13 +2,8 @@ django
 djangorestframework
 markdown
 django-filter
-psycopg2
-psycopg2-binary
-pika
-pyzmq
+psycopg2;    sys_platform == 'linux'
+psycopg2-binary; sys_platform == 'linux'
 django-environ
 djoser
-channels
-django-async-redis
 django_cors_headers==3.5.0
-aioredis
