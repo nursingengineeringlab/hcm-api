@@ -108,16 +108,6 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'SensorData',
-#         'USER': 'CHSUser1',
-#         'HOST': get_env_value('POSTGRES_DB_SVC_SERVICE_HOST'),
-#         'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
-#         'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
-#     }
-# }
 
 
 DATABASES = {
@@ -131,6 +121,7 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
 
 # DATABASES = {
 #     'default': {
@@ -142,6 +133,8 @@ DATABASES = {
 #         'PORT': int(get_env_value('POSTGRES_DB_SVC_SERVICE_PORT')),
 #     }
 # }
+=======
+>>>>>>> 51ca39d4e35f16c371ab54d6f4e2709b8f069b44
 
 
 # Password validation
@@ -180,7 +173,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/backend/static/'
 
 ALLOWED_HOSTS=['*']
 

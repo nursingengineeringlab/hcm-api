@@ -8,7 +8,6 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/asgi/
 """
 
 import os
-import care_api.routing
 from channels.auth import AuthMiddlewareStack
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
@@ -20,12 +19,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'care_api.settings')
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     # Just HTTP for now. (We can add other protocols later.)
-    "websocket": AuthMiddlewareStack(
-        URLRouter(
-            care_api.routing.websocket_urlpatterns
-        )
-    ),
-
 })
 
 
