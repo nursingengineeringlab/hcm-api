@@ -192,16 +192,6 @@ CORS_ALLOW_HEADERS = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-<<<<<<< HEAD
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3001",
-#     "http://127.0.0.1:3001",
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-#     "http://nelab.ddns.umass.edu",
-#     "https://nelab.ddns.umass.edu",
-# ]
-=======
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3001",
     "http://127.0.0.1:3001",
@@ -212,7 +202,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://nelab-ingress.eastus.cloudapp.azure.com/",
     "https://nelab-ingress.eastus.cloudapp.azure.com/",
 ]
->>>>>>> dcd2a11 (update config)
 
 
 
