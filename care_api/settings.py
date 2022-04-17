@@ -199,8 +199,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://nelab.ddns.umass.edu",
     "https://nelab.ddns.umass.edu",
-    "http://nelab-ingress.eastus.cloudapp.azure.com/",
-    "https://nelab-ingress.eastus.cloudapp.azure.com/",
+    "http://nelab-ingress.eastus.cloudapp.azure.com",
+    "https://nelab-ingress.eastus.cloudapp.azure.com",
 ]
 
 
