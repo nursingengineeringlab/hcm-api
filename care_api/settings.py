@@ -204,6 +204,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
+ALLOWED_HOSTS = ['nelab-ingress.eastus.cloudapp.azure.com']
 
 DJOSER = {
     "USER_ID_FIELD": "username"
