@@ -1,9 +1,9 @@
 channels
-django
+django == 3.0.*
 djangorestframework
 markdown
 django-filter
-psycopg2;    sys_platform == 'linux'
+psycopg2 == 2.8.6;    sys_platform == 'linux'
 psycopg2-binary; sys_platform == 'linux'
 django-environ
 djoser
