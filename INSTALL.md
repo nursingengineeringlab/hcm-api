@@ -4,12 +4,14 @@
 
 ```
 python -m venv ./venv
+
+source ./venv/bin/active
 ```
 
 ### Install dependencies
 
 ```
-pip3 install -r ./requirement.txt
+pip3 install -r ./requirements.txt
 ```
 
 ### Make sure the config files are correct
