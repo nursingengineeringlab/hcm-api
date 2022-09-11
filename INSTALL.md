@@ -1,4 +1,4 @@
-# how to setup frontend in a local enviroment
+# how to setup backedn in a local enviroment
 
 ### Install venv (Ubuntu Linux)
 
