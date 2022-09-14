@@ -11,6 +11,16 @@ source ./venv/bin/active
 ### Install dependencies
 
 ```
+sudo apt install postgresql postgresql-contrib
+
+pip3 install psycopg2
+
+pip3 install psycopg2-binary
+
+sudo apt install python3-dev
+
+sudo apt-get install libpq-dev
+
 pip3 install -r ./requirements.txt
 ```
 
