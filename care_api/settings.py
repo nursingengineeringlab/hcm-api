@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'data_api',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+    'drfpasswordless'
 ]
 
 MIDDLEWARE = [
@@ -111,15 +112,16 @@ REST_FRAMEWORK = {
 
 SQLLITE = 'django.db.backends.sqlite3'
 POSTSQL = 'django.db.backends.postgresql'
+MYSQL = 'django.db.backends.mysql'
 
 DATABASES = {
     'default': {
-        'ENGINE': POSTSQL,
-        'NAME': 'SensorData',
-        'USER': 'CHSUser1',
-        'HOST': 'postgres-db-svc.postgresql.svc.cluster.local',
-        'PASSWORD': 'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
-        'PORT': 5432,
+        'ENGINE': MYSQL, #POSTSQL,
+        'NAME': 'hms', #'SensorData',
+        'USER': 'hms', #'CHSUser1',
+        'HOST': '/var/run/mysqld/mysqld.sock', #'postgres-db-svc.postgresql.svc.cluster.local',
+        'PASSWORD': 'hms', #'A9EQFT6gS#LRHHwo75MRPZQl8mWaA02N&',
+        #'PORT': 5432,
     }
 }
 
@@ -209,3 +211,10 @@ ALLOWED_HOSTS = ['nelab-ingress.eastus.cloudapp.azure.com', 'nelab.ddns.umass.ed
 DJOSER = {
     "USER_ID_FIELD": "username"
 }
+
+PASSWORDLESS_AUTH = {
+    'PASSWORDLESS_AUTH_TYPES': ['EMAIL'],
+    'PASSWORDLESS_EMAIL_NOREPLY_ADDRESS': 'noreply@example.com',
+}
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
