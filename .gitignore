@@ -9,3 +9,4 @@ __pycache__
 venv/
 data_api/migrations/__pycache__/*.pyc
 data_api/migrations/__pycache__/*.pyc
+care_api/settings.py
